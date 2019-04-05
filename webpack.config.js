@@ -13,9 +13,9 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.json'],
     alias: {
-      schema: path.resolve(__dirname, 'src/server/schema/'),
+      schema: path.resolve(__dirname, 'src/schema/'),
       test: path.resolve(__dirname, 'src/test/'),
-      services: path.resolve(__dirname, 'src/server/services/'),
+      services: path.resolve(__dirname, 'src/services/'),
     },
   },
   module: {
