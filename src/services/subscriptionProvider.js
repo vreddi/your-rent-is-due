@@ -41,4 +41,19 @@ const editById = (id, props, req) => {
   throw new Error(noPermissionMessage);
 };
 
-export { create, deleteById, editById };
+/**
+ * Get all subscription metadata conforming to the filter query
+ * if provided.
+ * @param {Object<SearchInputType>} filter Filter object that defines the constraints
+ * @returns {Promise<SubscriptionMetadata>} List of subscription metadata
+ */
+const getSubscriptionMetadata = (filter) => {
+  if (filter) {
+    const { contains } = filter;
+    return SubscriptionMetadata.find({ name: new RegExp(contains, 'i') });
+  }
+
+  return SubscriptionMetadata.find({});
+};
+
+export { create, deleteById, editById, getSubscriptionMetadata };
