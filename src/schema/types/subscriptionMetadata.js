@@ -5,7 +5,7 @@ import {
   GraphQLObjectType,
   GraphQLInputObjectType,
 } from 'graphql';
-import ImageType from './image';
+import ImageType, { ImageInputType } from './image';
 
 const SubscriptionMetadataType = new GraphQLObjectType({
   name: 'SubscriptionMetadataType',
@@ -37,7 +37,7 @@ export const SubscriptionMetadataInputType = new GraphQLInputObjectType({
       description: 'Name of the subscription service',
     },
     image: {
-      type: ImageType,
+      type: ImageInputType,
       description: 'Logo or an identifiable image of the subscription service.',
     },
     link: {
@@ -55,7 +55,7 @@ export const SubscriptionMetadataEditInputType = new GraphQLInputObjectType({
       description: 'Name of the subscription service',
     },
     image: {
-      type: ImageType,
+      type: ImageInputType,
       description: 'Logo or an identifiable image of the subscription service.',
     },
     link: {
