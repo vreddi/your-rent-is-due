@@ -10,6 +10,11 @@ import createTrackingItem from './mutations/trackingItem/create';
 import editTrackingItem from './mutations/trackingItem/edit';
 import deleteTrackingItem from './mutations/trackingItem/delete';
 
+// Subscription Metadata
+import createSubscriptionMetadata from './mutations/subscriptionMetadata/create';
+import deleteSubscriptionMetadata from './mutations/subscriptionMetadata/delete';
+import editSubscriptionMetadata from './mutations/subscriptionMetadata/edit';
+
 export default new GraphQLObjectType({
   name: 'Mutation',
   fields: () => ({
@@ -19,5 +24,8 @@ export default new GraphQLObjectType({
     createTrackingItem,
     editTrackingItem,
     deleteTrackingItem,
+    createSubscriptionMetadata,
+    deleteSubscriptionMetadata,
+    editSubscriptionMetadata,
   }),
 });
