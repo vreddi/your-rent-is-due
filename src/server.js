@@ -38,7 +38,13 @@ const corsOptions = {
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(MONGO_CONNECTION_URI, { useNewUrlParser: true });
+mongoose.connect(
+  MONGO_CONNECTION_URI,
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  },
+);
 mongoose.connection
   .once('open', () => console.log('Connected to MLab instance.'))
   .on('error', error => console.log('Error connecting to MLab: ', error));
