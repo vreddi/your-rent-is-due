@@ -8,6 +8,9 @@ const TrackingItemSchema = new Schema(
     amount: Number,
     link: String,
     autoPaySet: Boolean,
+    image: { data: Buffer, contentType: String },
+    subscriptionMetadataId: String,
+    recurringDate: Date,
     userId: { type: String, required: [true, 'userId is a required field.'] },
     frequency: [
       'DAILY',

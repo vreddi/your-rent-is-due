@@ -17,6 +17,12 @@ const create = (props, req) => {
 };
 
 /**
+ * Retreive a sepcific subscription metadata
+ * @param {String} id Unique identifier for the subscription metadata
+ */
+const getById = (id) => SubscriptionMetadata.findById(id);
+
+/**
  * Deletes an existing subscription metadata by id.
  * @param {String} id Unique identifier for the subscription metadata
  * @param {Object} req Request object
@@ -56,4 +62,4 @@ const getSubscriptionMetadata = (filter) => {
   return SubscriptionMetadata.find({});
 };
 
-export { create, deleteById, editById, getSubscriptionMetadata };
+export { create, deleteById, editById, getById, getSubscriptionMetadata };

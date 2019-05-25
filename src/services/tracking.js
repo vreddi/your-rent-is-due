@@ -5,8 +5,8 @@ const TrackingItem = mongoose.model('trackingItem');
 
 /**
  * Creates a new tracking item.
- * @param  {Object} props    [Properties of a tracking item]
- * @returns {Promise<TrackingItem>}   [New tracking item]
+ * @param  {Object} props Properties of a tracking item
+ * @returns {Promise<TrackingItem>} New tracking item
  */
 const create = (props) => {
   if (!props.userId) {
