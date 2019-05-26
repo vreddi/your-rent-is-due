@@ -1,6 +1,9 @@
 import { GraphQLObjectType, GraphQLList } from 'graphql';
 import { getAllTrackingItems } from 'services/tracking';
-import { getSubscriptionMetadata } from 'services/subscriptionProvider';
+import {
+  getSubscriptionMetadata,
+  getById as getSubscriptionById
+} from 'services/subscriptionProvider';
 import UserType from './user';
 import TrackingItemType from './trackingItem';
 import SubscriptionMetadataType from './subscriptionMetadata';
@@ -27,6 +30,10 @@ const RootQueryType = new GraphQLObjectType({
         filter: { type: SearchInputType },
       },
       resolve(parentValue, { filter }) {
+        if (filter.id) {
+          return getSubscriptionById(filter.id).then(result => [result]);
+        }
+
         return getSubscriptionMetadata(filter);
       },
     },
