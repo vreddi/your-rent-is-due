@@ -10,45 +10,8 @@ import {
 } from 'graphql';
 import GraphQLDate from 'graphql-date';
 import ImageType, { ImageInputType } from './image';
-
-const FrequencyEnumType = new GraphQLEnumType({
-  name: 'FrequencyEnumType',
-  values: {
-    DAILY: {
-      value: 'DAILY',
-    },
-    WEEKLY: {
-      value: 'WEEKLY',
-    },
-    BIWEEKLY: {
-      value: 'BIWEEKLY',
-    },
-    MONTHLY: {
-      value: 'MONTHLY',
-    },
-    ANNUALLY: {
-      value: 'ANNUALLY',
-    },
-  },
-});
-
-const TypeEnumType = new GraphQLEnumType({
-  name: 'TypeEnumType',
-  values: {
-    BILL: {
-      value: 'BILL',
-    },
-    RENT: {
-      value: 'RENT',
-    },
-    PARKING: {
-      value: 'PARKING',
-    },
-    SUBSCRIPTION: {
-      value: 'SUBSCRIPTION',
-    },
-  },
-});
+import { TypeEnumType, TypeCreateInputEnumType, TypeEditInputEnumType } from './trackingItemType';
+import { FrequencyEnumType, FrequencyCreateInputEnumType, FrequencyEditInputEnumType } from './trackingItemFrequency';
 
 const TrackingItemType = new GraphQLObjectType({
   name: 'TrackingItemType',
@@ -68,8 +31,8 @@ const TrackingItemType = new GraphQLObjectType({
     link: { type: GraphQLString },
     amount: { type: GraphQLFloat },
     autoPaySet: { type: GraphQLBoolean },
-    type: { type: TypeEnumType },
-    frequency: { type: FrequencyEnumType },
+    type: { type: new GraphQLEnumType(TypeEnumType) },
+    frequency: { type: new GraphQLEnumType(FrequencyEnumType) },
     recurringDate: { type: GraphQLDate },
     image: {
       type: ImageType,
@@ -86,8 +49,8 @@ export const TrackingItemCreateInputType = new GraphQLInputObjectType({
     link: { type: GraphQLString },
     amount: { type: GraphQLFloat },
     autoPaySet: { type: GraphQLBoolean },
-    type: { type: TypeEnumType },
-    frequency: { type: FrequencyEnumType },
+    type: { type: new GraphQLEnumType(TypeCreateInputEnumType) },
+    frequency: { type: new GraphQLEnumType(FrequencyCreateInputEnumType) },
     recurringDate: { type: GraphQLDate },
     image: { type: ImageInputType },
     subscriptionTemplateId: { type: GraphQLID },
@@ -101,8 +64,8 @@ export const TrackingItemEditInputType = new GraphQLInputObjectType({
     link: { type: GraphQLString },
     amount: { type: GraphQLFloat },
     autoPaySet: { type: GraphQLBoolean },
-    type: { type: TypeEnumType },
-    frequency: { type: FrequencyEnumType },
+    type: { type: new GraphQLEnumType(TypeEditInputEnumType) },
+    frequency: { type: new GraphQLEnumType(FrequencyEditInputEnumType) },
     recurringDate: { type: GraphQLDate },
     image: { type: ImageInputType },
   },
