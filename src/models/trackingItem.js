@@ -12,19 +12,8 @@ const TrackingItemSchema = new Schema(
     subscriptionTemplateId: String,
     recurringDate: Date,
     userId: { type: String, required: [true, 'userId is a required field.'] },
-    frequency: [
-      'DAILY',
-      'WEEKLY',
-      'BIWEEKLY',
-      'MONTHLY',
-      'ANNUALLY',
-    ],
-    type: [
-      'BILL',
-      'RENT',
-      'PARKING',
-      'SUBSCRIPTION',
-    ],
+    frequency: Number,
+    type: Number,
   },
   {
     timestamps: {
