@@ -3,3 +3,14 @@ Tracking recurring payments, bills and subscriptions simplified
 <hr>
 
 <br>
+
+## Getting started
+
+The following instructions will get you started with getting your server running locally. Before you start with the `npm` commands you would need a valid `.env` file.
+
+```
+npm install
+npm start
+```
+
+After running the above commands go to the following link: http://localhost:4000/graphql
